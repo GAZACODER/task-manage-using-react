@@ -2,21 +2,29 @@
 import './App.css';
 import { BrowserRouter, Route , Routes } from "react-router-dom";
 
-import Home from './Screens/Home';
-import Boards from './Screens/Boards/Boards';
+ import Component from './component'
+import { useState } from 'react';
 
+let id=0
+ 
 function App() {
+  const [state,setState]= useState<string[]>([])
+  const [header,setHeader]=useState("")
+ 
+  const handleClick=()=>{
+  setState([...state,header])
+
+ }
   return (
-    <BrowserRouter>
-      <div className="App">
-          <Routes>
-             <Route path="/" element={<Home />} />
- <Route path="/boards" element={<Boards/>} />
-          
-          
-          </Routes>
-        </div>
-      </BrowserRouter>
+    <div className='containers'>
+    {state?.map((title,index)=>(
+     <Component title={title} key={index} />      
+      ))}
+         <div style={{margin:"1rem"}}>
+         <input onChange={(e)=>setHeader(e?.target?.value)} />
+         <button onClick={handleClick}>+</button>
+         </div>
+      </div>
   );
 }
 

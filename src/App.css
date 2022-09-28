@@ -27,6 +27,27 @@
 .App-link {
   color: #61dafb;
 }
+.container{
+ border: 1px solid black;
+ max-width: 16rem;
+ margin: 2rem 3rem ;
+ padding : 1rem
+}
+
+.card{
+  padding:2rem;
+  border : 1px solid black;
+  margin:1rem;
+  max-width: 15rem;
+  overflow: scroll;
+}
+
+.containers{
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  width: 100%;
+}
 
 @keyframes App-logo-spin {
   from {
